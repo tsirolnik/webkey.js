@@ -97,7 +97,3 @@ var webkey = (function(){
         }
     };
 })()
-
-webkey.press([
-    [webkey.keyCodes.ENTER,function() {alert(1)}]
-]);
