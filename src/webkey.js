@@ -2,15 +2,15 @@ var webkey = (function(){
     return {
         press   :   function(bindings) {
             // Store tha handlers as key-value - e.g : {13 : [fn, elment, fn2]}
-            var pressHandlers = {};
+            var pressHandlers = {},
+                key = undefined;
             bindings.forEach(function(binding) {
                 // Build up the handlers in the pressHandlers object
-                if (!pressHandlers.hasOwnProperty(binding[0]))  pressHandlers[binding[0]] = [];
-                pressHandlers[binding[0]].push(binding[1]);
+                pressHandlers[binding.key] = binding.handlers;
             });
 
             window.addEventListener('keypress', function(e) {
-                var key = 'which' in e ? e.which : e.keyCode;
+                key = 'which' in e ? e.which : e.keyCode;
                 if (pressHandlers.hasOwnProperty(key)) {
                     // Iterate over the existing handlers
                     pressHandlers[key].forEach(function(handler) {
