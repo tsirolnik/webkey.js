@@ -6,7 +6,7 @@
         <script src="../src/webkey.js" charset="utf-8"></script>
 		<script>
 		webkey.press([
-			{key:webkey.keyCodes.ENTER, handlers: function() {alert(1)}}
+			{key:webkey.keyCodes.ENTER, handlers: [function() {alert(1)}]}
 		]);
 		</script>
     </head>
